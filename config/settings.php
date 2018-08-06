@@ -10,7 +10,7 @@ return [
     /*
      * Is email activation required
      */
-    'activation' => env('ACTIVATION', false),
+    'activation' => env('ACTIVATION', true),
 
     /*
      * Is email activation required
@@ -50,22 +50,22 @@ return [
     /*
      * ReCaptcha Status
      */
-    'reCaptchStatus' => env('ENABLE_RECAPTCHA', false),
+    'reCaptchStatus' => env('ENABLE_RECAPTCHA', true),
 
     /*
      * ReCaptcha Site Key
      */
-    'reCaptchSite'   => env('RE_CAP_SITE', 'YOURGOOGLECAPTCHAsitekeyHERE'),
+    'reCaptchSite'   => env('RE_CAP_SITE', '6LeC5GcUAAAAAJH_ahdNCjxiBFnWbH4pJsm33wRY'),
 
     /*
      * ReCaptcha Secret
      */
-    'reCaptchSecret' => env('RE_CAP_SECRET', 'YOURGOOGLECAPTCHAsecretHERE'),
+    'reCaptchSecret' => env('RE_CAP_SECRET', '6LeC5GcUAAAAAK7qWvZUCXKoEHeQ9gjsnDJkzICC'),
 
     /*
      * Google Maps API V3 Status
      */
-    'googleMapsAPIStatus' => env('GOOGLEMAPS_API_STATUS', false),
+    'googleMapsAPIStatus' => env('GOOGLEMAPS_API_STATUS', true),
 
     /*
      * Google Maps API Key

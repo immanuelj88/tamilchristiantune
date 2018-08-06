@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Laravel\Socialite\Facades\Socialite;
+
+
 class WelcomeController extends Controller
 {
     /**

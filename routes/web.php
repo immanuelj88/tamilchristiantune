@@ -19,6 +19,12 @@ Route::get('/', 'WelcomeController@welcome')->name('welcome');
 // Authentication Routes
 Auth::routes();
 
+Route::get('google', function () {
+    return view('google');
+});
+Route::get('auth/google', 'Auth\GoogleController@redirectToGoogle');
+Route::get('auth/google/callback', 'Auth\GoogleController@handleGoogleCallback');
+
 // Public Routes
 Route::group(['middleware' => ['web', 'activity']], function () {
 

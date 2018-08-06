@@ -39,6 +39,7 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
+        'google_id',
         'activated',
         'token',
         'signup_ip_address',
@@ -85,6 +86,15 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Profile');
     }
 
+    public function addNew($input)
+    {
+        $check = static::where('google_id',$input['google_id'])->first();
+        if(is_null($check)){
+            return static::create($input);
+        }
+        return $check;
+    }
+
     // User Profile Setup - SHould move these to a trait or interface...
 
     public function profiles()
@@ -99,7 +109,6 @@ class User extends Authenticatable
                 return true;
             }
         }
-
         return false;
     }
 
