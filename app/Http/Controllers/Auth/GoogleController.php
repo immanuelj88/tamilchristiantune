@@ -16,6 +16,10 @@ class GoogleController extends Controller
     {
         return Socialite::driver('google')->redirect();
     }
+    public function redirectToFacebook()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
     /**
      * Create a new controller instance.
      *
@@ -28,6 +32,21 @@ class GoogleController extends Controller
             $create['name'] = $user->getName();
             $create['email'] = $user->getEmail();
             $create['google_id'] = $user->getId();
+            $userModel = new User();
+            $createdUser = $userModel->addNew($create);
+            Auth::loginUsingId($createdUser->id);
+            return view('welcome');
+        } catch (Exception $e) {
+            return $e;
+        }
+    }
+    public function handleFacebookCallback()
+    {
+        try {
+            $user = Socialite::driver('facebook')->user();
+            $create['name'] = $user->getName();
+            $create['email'] = $user->getEmail();
+            $create['facebook_id'] = $user->getId();
             $userModel = new User();
             $createdUser = $userModel->addNew($create);
             Auth::loginUsingId($createdUser->id);
